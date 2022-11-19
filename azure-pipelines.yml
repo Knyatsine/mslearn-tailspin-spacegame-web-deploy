@@ -3,7 +3,7 @@ trigger:
 
 variables:
   buildConfiguration: 'Release'
-  dotnetSdkVersion: '6.x'
+  dotnetSdkVersion: '5.x'
 
 stages:
 - stage: 'Build'
@@ -138,7 +138,7 @@ stages:
           arguments: '--no-build --configuration $(buildConfiguration)'
           publishTestResults: true
           projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
-          
+
 - stage: 'Staging'
   displayName: 'Deploy to the staging environment'
   dependsOn: Test
